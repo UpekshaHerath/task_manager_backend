@@ -1,10 +1,19 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const tasks = require("./routes/tasks");
 const connectDB = require("./db/connect");
 require("dotenv").config();
 const notFound = require("./middleWare/notFound");
 const errorHandlerMiddleware = require("./middleWare/errorHandler");
+
+app.use(cors(
+  {
+    origin: ["https://deploy-mern-1whq.vercel.app"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  }
+))
 
 // middleware
 app.use(express.json());
