@@ -1,10 +1,10 @@
 const express = require("express");
 const app = express();
-const tasks = require("./routes/tasks");
-const connectDB = require("./db/connect");
+const tasks = require("../routes/tasks");
+const connectDB = require("../db/connect");
 require("dotenv").config();
-const notFound = require("./middleWare/notFound");
-const errorHandlerMiddleware = require("./middleWare/errorHandler");
+const notFound = require("../middleWare/notFound");
+const errorHandlerMiddleware = require("../middleWare/errorHandler");
 
 // middleware
 app.use(express.json());
@@ -32,3 +32,4 @@ const start = async () => {
 };
 
 start();
+module.exports = app;
